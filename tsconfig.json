@@ -26,5 +26,9 @@
       "@repositories/*": ["./src/repositories/*"],
       "@utils/*": ["./src/utils/*"]
     }
-  }
+  },
+  "exclude": [
+    "./babel.config.js"
+    // "./built/**/*"
+  ]
 }
