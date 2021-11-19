@@ -3,7 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
-import './passportSetup.ts';
+import './auth/googleOauth2/index.ts';
 
 const app = express();
 // app.use(express.static(`${__dirname}/../public`));
