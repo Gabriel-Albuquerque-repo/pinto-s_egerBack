@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
@@ -19,9 +20,7 @@ const isLoggedIn = (req, res, next) => {
     res.sendStatus(401);
   }
 };
-
 app.use(passport.initialize());
-
 app.use(passport.session());
 
 // app.get('/', (_, response) => response.sendFile('index.html'));
@@ -37,7 +36,7 @@ app.get(
 
 app.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: '/failed' }),
+  passport.authenticate('google', { failureRedirect: '/failed', successRedirect: '/good' }),
   (_, response) => {
     // Successful authentication, redirect home.
     response.redirect('/good');
