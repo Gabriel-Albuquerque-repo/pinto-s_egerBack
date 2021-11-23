@@ -1,7 +1,7 @@
 import { uuid } from 'uuidv4';
 
 export default class User {
-  public readonly id: string;
+  public readonly id?: string;
 
   public googleId: string;
 
@@ -9,11 +9,9 @@ export default class User {
 
   public email: string;
 
-  public password: string;
-
   public createdAt: number;
 
-  public lastLogin: number;
+  public lastLogin?: number;
 
   public chatsPathList: Array<{
     path: string,
@@ -25,7 +23,7 @@ export default class User {
   }>;
 
   // eslint-disable-next-line no-unused-vars
-  constructor(props: Omit<User, 'id' | 'lastLogin'>, id? : string, lastLogin?: number) {
+  constructor(props: Omit<User, 'googleId'>, id? : string, lastLogin?: number) {
     Object.assign(this, props);
 
     if (!id) {
