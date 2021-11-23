@@ -3,14 +3,12 @@ import 'dotenv/config';
 import express from 'express';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
-import './auth/google/googleOauth2.ts';
+import './auth/google/GoogleOauth2.ts';
 
 const app = express();
 // app.use(express.static(`${__dirname}/../public`));
 
 // const serverHttp = http.createServer(app);
-
-app.use(express.json());
 
 app.use(cookieSession({
   name: 'web session',

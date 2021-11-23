@@ -21,10 +21,11 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": ["./src/controllers/*"],
+      // "@controllers/*": ["./src/controllers/*"],
       "@entities/*": ["src/entities/*"],
       "@repositories/*": ["./src/repositories/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      // "@createUser*": ["./src/useCases/createUser"],
     }
   },
   "exclude": [
