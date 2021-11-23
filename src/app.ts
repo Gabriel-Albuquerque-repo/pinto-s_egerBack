@@ -3,7 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
-import './auth/googleOauth2/index.ts';
+import './auth/google/googleOauth2.ts';
 
 const app = express();
 // app.use(express.static(`${__dirname}/../public`));
@@ -24,6 +24,7 @@ const isLoggedIn = (req, res, next) => {
 };
 
 app.use(passport.initialize());
+
 app.use(passport.session());
 
 // app.get('/', (_, response) => response.sendFile('index.html'));
