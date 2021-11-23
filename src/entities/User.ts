@@ -3,7 +3,7 @@ import { uuid } from 'uuidv4';
 export default class User {
   public readonly id: string;
 
-  public readonly googleId: string;
+  public googleId: string;
 
   public name: string;
 
@@ -11,26 +11,29 @@ export default class User {
 
   public password: string;
 
-  public createdAt: Date;
+  public createdAt: number;
 
-  public lastLogin: Date;
+  public lastLogin: number;
 
   public chatsPathList: Array<{
-    id: string,
-    pathh: string,
+    path: string,
   }>;
 
   public friendList: Array<{
-    id: string,
+    friendId: string,
     name: string,
   }>;
 
   // eslint-disable-next-line no-unused-vars
-  constructor(props: Omit<User, 'id' | 'googleId'>, id? : string, googleId? : string) {
+  constructor(props: Omit<User, 'id' | 'lastLogin'>, id? : string, lastLogin?: number) {
     Object.assign(this, props);
 
     if (!id) {
       this.id = uuid();
+    }
+
+    if (!lastLogin) {
+      this.lastLogin = Date.now();
     }
   }
 }
