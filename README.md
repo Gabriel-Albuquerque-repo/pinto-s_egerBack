@@ -34,4 +34,5 @@
 - Construir o build usando o babel;
 - Deploy;
 - Criar o UI no Flutter e React(talvez);
-- Socket.io
+- Socket.io;
+- Nodemailer;
