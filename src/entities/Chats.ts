@@ -11,7 +11,7 @@ export default class Chat {
   }>;
 
   public chat: Array<{
-    userWhoSentMessage: string,
+    userNameWhoSentMessage: string,
     dateOfMessageSent: Date,
     messageSent: string,
   }>;
