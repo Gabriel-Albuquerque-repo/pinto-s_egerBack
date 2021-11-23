@@ -4,11 +4,11 @@ export default interface ICreateUserRequestDTO {
     name: string,
     email: string,
     createdAt: number,
-    chatsPathList: Array<{
-        path: string,
-    }>,
-    friendList: Array<{
-        friendId: string,
-        name: string
-    }>
+    // chatsPathList?: Array<{
+    //     path: string,
+    // }>,
+    // friendList?: Array<{
+    //     friendId: string,
+    //     name: string
+    // }>
 }

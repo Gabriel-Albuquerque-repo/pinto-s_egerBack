@@ -13,11 +13,11 @@ export default class User {
 
   public lastLogin?: number;
 
-  public chatsPathList: Array<{
+  public chatsPathList?: Array<{
     path: string,
   }>;
 
-  public friendList: Array<{
+  public friendList?: Array<{
     friendId: string,
     name: string,
   }>;
