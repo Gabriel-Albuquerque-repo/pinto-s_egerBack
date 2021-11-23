@@ -10,6 +10,8 @@ const app = express();
 
 // const serverHttp = http.createServer(app);
 
+app.use(express.json());
+
 app.use(cookieSession({
   name: 'web session',
   keys: ['key1', 'key2'],
