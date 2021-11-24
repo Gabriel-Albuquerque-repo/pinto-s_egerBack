@@ -8,9 +8,11 @@
 - TypeScript;
 - Node;
 - Oauth2.0;
+- MongoDB;
 
 ### Dependências externas(npm):
 - Express;
+- mongoose;
 - ts-node-dev/ tsconfig-paths;
 - debug;
 - denv;
