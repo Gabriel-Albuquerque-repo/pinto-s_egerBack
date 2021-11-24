@@ -13,8 +13,12 @@ module.exports = {
   plugins: [
     ['module-resolver', {
       alias: {
+        '@app': 'src/App.ts',
+        '@auth': 'src/auth',
         '@entites': './src/entites',
-        '@controllers': './src/controllers',
+        '@useCases': './src/useCases',
+        '@utils': 'src/utils',
+        '@repositories': 'src/repositories',
       },
     }],
   ],
