@@ -22,9 +22,9 @@
     "baseUrl": ".",
     "paths": {
       "@app": ["src/App.ts"],
-      "@auth/*": ["src/auth/*"],
+      "@googleAuth": ["src/auth/google/oauth2.ts"],
       "@entities/*": ["src/entities/*"],
-      "@useCases*": ["./src/useCases/*"],
+      "@useCases/*": ["./src/useCases/*"],
       "@utils/*": ["./src/utils/*"],
       "@repositories/*": ["./src/repositories/*"],
     }
