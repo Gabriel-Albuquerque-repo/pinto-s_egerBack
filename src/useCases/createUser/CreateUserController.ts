@@ -11,7 +11,7 @@ export default class CreateUserController {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  async handle(request: Request, response: Response): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const { googleId, name, email } = request.body;
 
     try {
