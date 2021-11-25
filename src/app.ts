@@ -1,56 +1,67 @@
+/* eslint-disable import/no-unresolved */
 import 'dotenv/config';
-// import http from 'http';
 import express from 'express';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
+// Precisa criar uma interface para desacoplar o mongo e o auth!
+import MongoConnection from '@mongoConnection';
 import '@googleAuth';
+// import routes from './routes';
 
-const app = express();
-// app.use(express.static(`${__dirname}/../public`));
+export default class App {
+  public app: express.Application;
 
-// const serverHttp = http.createServer(app);
+  public conn : MongoConnection;
 
-app.use(cookieSession({
-  name: 'web session',
-  keys: ['key1', 'key2'],
-}));
-
-const isLoggedIn = (req, res, next) => {
-  if (req.user) {
-    next();
-  } else {
-    res.sendStatus(401);
+  public constructor() {
+    this.conn = new MongoConnection();
+    this.app = express();
+    this.middlewares();
+    this.routes();
   }
-};
 
-app.use(passport.initialize());
+  private middlewares() : void {
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(cookieSession({
+      name: 'web session',
+      keys: ['key1', 'key2'],
+    }));
+    this.app.use(passport.initialize());
+    this.app.use(passport.session());
+  }
 
-app.use(passport.session());
+  private routes(): void {
+    // this.app.use(routes);
+    this.app.get('/failed', (_, response) => response.send('You failed to log in!'));
 
-// app.get('/', (_, response) => response.sendFile('index.html'));
+    this.app.get('/good', (req, res, next) => {
+      if (req.user) {
+        next();
+      } else {
+        res.sendStatus(401);
+      }
+    }, (request, response) => response.send(`Welcome ${request.user.displayName}!`));
 
-app.get('/failed', (_, response) => response.send('You failed to log in!'));
+    // auth/google
+    this.app.get(
+      '/',
+      passport.authenticate('google', { scope: ['profile', 'email'] }),
+    );
 
-app.get('/good', isLoggedIn, (request, response) => response.send(`Welcome ${request.user.displayName}!`));
+    this.app.get(
+      '/google/callback',
+      passport.authenticate('google', { failureRedirect: '/failed', successRedirect: '/good' }),
+      (_, response) => {
+        // Successful authentication, redirect home.
+        response.redirect('/good');
+      },
+    );
 
-app.get(
-  '/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] }),
-);
-
-app.get(
-  '/google/callback',
-  passport.authenticate('google', { failureRedirect: '/failed', successRedirect: '/good' }),
-  (_, response) => {
-    // Successful authentication, redirect home.
-    response.redirect('/good');
-  },
-);
-
-app.get('/logout', (req, res) => {
-  req.session = null;
-  req.logout();
-  res.redirect('/');
-});
-
-export default app;
+    this.app.get('/logout', (req, res) => {
+      req.session = null;
+      req.logout();
+      res.redirect('/');
+    });
+  }
+}
