@@ -15,19 +15,26 @@ export default class App {
 
   public constructor() {
     this.conn = new MongoConnection();
+
     this.app = express();
+
     this.middlewares();
+
     this.routes();
   }
 
   private middlewares() : void {
     this.app.use(express.json());
+
     this.app.use(express.urlencoded({ extended: false }));
+
     this.app.use(cookieSession({
       name: 'web session',
       keys: ['key1', 'key2'],
     }));
+
     this.app.use(passport.initialize());
+
     this.app.use(passport.session());
   }
 
