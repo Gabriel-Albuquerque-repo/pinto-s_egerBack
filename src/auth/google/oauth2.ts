@@ -12,7 +12,6 @@ passport.use(new GoogleStrategy(
   // Aqui tem o acesso ao profile e faz a integração com o bd para procurar
   // o usuário! esse é o cb
   ((accessToken, refreshToken, profile, done) => {
-    // console.log(profile);
     done(null, profile);
   }),
 ));
