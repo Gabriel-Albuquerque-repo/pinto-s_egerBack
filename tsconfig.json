@@ -21,12 +21,13 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app": ["src/App.ts"],
+      "@app": ["src/app.ts"],
       "@googleAuth": ["src/auth/google/oauth2.ts"],
       "@entities/*": ["src/entities/*"],
       "@useCases/*": ["./src/useCases/*"],
       "@utils/*": ["./src/utils/*"],
       "@repositories/*": ["./src/repositories/*"],
+      "@mongoConnection" : ["./src/repositories/implementations/MongoConnection.ts"]
     }
   },
   "exclude": [

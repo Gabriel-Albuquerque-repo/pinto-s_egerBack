@@ -19,6 +19,7 @@ module.exports = {
         '@useCases': './src/useCases',
         '@utils': 'src/utils',
         '@repositories': 'src/repositories',
+        '@mongoConnection': 'src/repositories/implementations/MongoConnection.ts',
       },
     }],
   ],
