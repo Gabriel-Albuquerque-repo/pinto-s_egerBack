@@ -3,15 +3,17 @@ import { uuid } from 'uuidv4';
 export default class User {
   public readonly id?: string;
 
-  public googleId: string;
+  public googleId?: string; // id
 
-  public name: string;
+  public firstName?: string; // displayName.givenName
 
-  public email: string;
+  public familyName?: string; // displayName.givenName
 
-  public createdAt: number;
+  public email?: string; // email
 
-  public lastLogin?: number;
+  public createdAt?: number;
+
+  public updatedAt?: number;
 
   public chatsPathList?: Array<{
     path: string,
@@ -23,15 +25,15 @@ export default class User {
   }>;
 
   // eslint-disable-next-line no-unused-vars
-  constructor(props: Omit<User, 'googleId'>, id? : string, lastLogin?: number) {
+  constructor(props: Omit<User, 'id' | 'updatedAt'>, id? : string, updatedAt?: number) {
     Object.assign(this, props);
 
     if (!id) {
       this.id = uuid();
     }
 
-    if (!lastLogin) {
-      this.lastLogin = Date.now();
+    if (!updatedAt) {
+      this.updatedAt = Date.now();
     }
   }
 }

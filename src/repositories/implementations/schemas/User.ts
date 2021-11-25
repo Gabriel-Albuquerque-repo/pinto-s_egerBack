@@ -1,17 +1,42 @@
 import { Schema, model, Document } from 'mongoose';
 
 interface UserInterface extends Document {
+    id: string,
+
+    googleId: string,
+
     email?: string,
+
     firtsName: String,
+
     lastName: String,
 }
 
-const UserSchema = new Schema({
-  email: String,
-  firtsName: String,
-  lastName: String,
-}, {
-  timestamps: true,
-});
+const simplifyOptions = {
+  type: String,
 
-export default model<UserInterface>('User', UserSchema);
+  required: true,
+
+  trim: true,
+};
+
+const schema = new Schema<UserInterface>(
+  {
+    id: simplifyOptions,
+
+    googleId: simplifyOptions,
+
+    email: simplifyOptions,
+
+    firtsName: simplifyOptions,
+
+    lastName: simplifyOptions,
+  },
+  {
+    timestamps: true,
+    id: false,
+    strict: false,
+  },
+);
+
+export default model<UserInterface>('UserModel', schema);

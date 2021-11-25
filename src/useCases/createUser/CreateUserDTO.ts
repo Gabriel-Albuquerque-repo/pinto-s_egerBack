@@ -1,14 +1,8 @@
 /* eslint-disable semi */
 export default interface ICreateUserRequestDTO {
     googleId: string,
-    name: string,
+    firstName: string,
+    familyName: string,
     email: string,
-    createdAt: number,
-    // chatsPathList?: Array<{
-    //     path: string,
-    // }>,
-    // friendList?: Array<{
-    //     friendId: string,
-    //     name: string
-    // }>
+    createdAt: number
 }

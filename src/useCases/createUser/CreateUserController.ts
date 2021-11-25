@@ -12,14 +12,17 @@ export default class CreateUserController {
 
   // eslint-disable-next-line class-methods-use-this
   public async handle(request: Request, response: Response): Promise<Response> {
-    const { googleId, name, email } = request.body;
+    const {
+      googleId, firstName, email, familyName,
+    } = request.body;
 
     try {
       await this.createUserUseCase.execute({
         googleId,
-        name,
+        firstName,
+        familyName,
         email,
-        createdAt: Date.now(),
+        createdAt: Date.now(), // Ver como se comporta
       });
 
       return response.status(201).send();
