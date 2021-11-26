@@ -20,6 +20,7 @@ module.exports = {
         '@utils': 'src/utils',
         '@repositories': 'src/repositories',
         '@mongoConnection': 'src/repositories/implementations/MongoConnection.ts',
+        '@routes': 'src/routes.ts',
       },
     }],
   ],

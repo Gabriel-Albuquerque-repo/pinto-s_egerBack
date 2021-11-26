@@ -10,5 +10,4 @@ const createUserUseCase = new CreateUserUseCase(mongoUsersRepository);
 
 const createUserController = new CreateUserController(createUserUseCase);
 
-// Joga lá na routes o createUserController!
-export { createUserUseCase, createUserController };
+export default createUserController;
