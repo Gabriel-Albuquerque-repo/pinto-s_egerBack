@@ -1,2 +1,2 @@
 dist
-/*.js
+babel.config.js
