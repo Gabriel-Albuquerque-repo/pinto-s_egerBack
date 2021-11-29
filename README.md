@@ -26,7 +26,7 @@
 - HTTP.
 
 ### Aprendizados:
-- Entender os princípios do SOLID;
+- Entender um pouco dos princípios SOLID;
 - Acostumar-se com o preset do airbnb;
 - Manter fluxo de commits e lógica neles;
 - Usar o passport para criação e login de contas;
