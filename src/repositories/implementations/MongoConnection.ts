@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-// eslint-disable-next-line import/no-import-module-exports
 import mongoose from 'mongoose';
 
 export default class MongoConnection {
