@@ -15,7 +15,7 @@
 - mongoose;
 - ts-node-dev/ tsconfig-paths;
 - debug;
-- denv;
+- dotenv;
 - babel;
 - eslint/ eslint-config-airbnb-base;
 - passport/ passport-google-oauth20;
