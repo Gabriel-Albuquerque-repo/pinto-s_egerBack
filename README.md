@@ -10,7 +10,7 @@
 - Oauth2.0;
 - MongoDB;
 
-### Dependências externas(npm):
+### Dependências externas(yarn):
 - Express;
 - mongoose;
 - ts-node-dev/ tsconfig-paths;
